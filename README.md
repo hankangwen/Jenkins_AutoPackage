@@ -795,7 +795,7 @@ public class BuildTools
 
 #### 5、拓展：python 加强版脚本
 
-我个人其实不是特别喜欢写`bat`脚本，我更喜欢写`pytho`，于是，我就写了个`python`版的脚本，脚本中我加了监控`Unity`日志输出的逻辑，方便进行一些判断，画个图：  
+我个人其实不是特别喜欢写`bat`脚本，我更喜欢写`python`，于是，我就写了个`python`版的脚本，脚本中我加了监控`Unity`日志输出的逻辑，方便进行一些判断，画个图：  
 ![](https://img-blog.csdnimg.cn/20210718115451523.png?x-oss-process=/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbnhpbmZh,size_16,color_FFFFFF,t_70)  
 `python`完整代码如下：
 
