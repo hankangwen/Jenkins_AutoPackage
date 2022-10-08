@@ -1,0 +1,264 @@
+Winodws命令行
+
+1，echo 显示内容
+echo 内容（类似log）
+echo on/off  （关闭或开启回显）
+@echo off  内容  pause（暂停）
+
+@  符号  表示@后面的命令不显示
+
+2，cd  进入目录
+cd 内容（path路径，进入到对应的文件夹下面，如果不是在当前盘符，需要执行 盘符：（e:））
+cd .. (进入父目录)
+cd /d d:\ (进入盘符根目录)
+cd e: (显示之前盘符所在目录)
+d:  (盘符：表示进入某个盘（记录上次进入这个盘的目录，直接进入到对应目录）)  ==  cd /d d:
+
+3 dir  显示目录中的内容
+dir (显示当前目录中字文件夹和文件  包含文件信息)
+dir /b (只显示当前目录中的子文件夹与文件的文件名)
+dir /p （分页显示当前目录中的子文件夹与文件）
+dir /ad (显示当前目录中的子文件夹)
+dir /ad (显示当前目录中的文件)
+dir ttt.txt  (显示ttt.txt文件的信息)
+dir 文件夹 （显示该文件夹下面子文件夹和文件  包含文件信息）
+
+4 tree  显示目录结构
+tree 路径 （显示对应文件夹里面的目录结构）
+
+5 ren  文件夹或文件改名
+ren ttt.txt 测试.txt   (将当前目录下的ttt.txt改名为测试.txt)
+ren e:\Work\测试.txt 测试2.txt  (直接改对应目录下面的文件夹名)
+
+6 md  创建目录
+md 文件夹名   （在当前目录中创建文件夹）
+md e:\work\测试123  （直接在对应目录创建文件夹）
+
+7 rd 删除目录
+rd 文件夹名  （在当前目录中删除文件夹）
+rd e:\work\测试123 （直接在对应目录删除文件夹）
+rd 测试 /s /q  (删除当前目录中的文件夹，包括子文件夹和子文件  /s表示删除子文件夹与子文件  /q表示不需要删除请求，安静模式)
+
+8，copy 拷贝文件
+copy 测试2.txt  e:\  （将测试2文件拷贝到e盘目录下）
+copy 测试2.txt 路径+文件名  （将文件拷贝到对应路径下，并且重命名）
+copy /y 测试2.txt  e:\(不需要询问是否覆盖)
+copy /y  文件夹 e:\ (拷贝文件夹下面所有文件到对应目录，不包括子目录)
+copy 测试2.txt + (复制文件到自己，实际修改了文件日期)
+copy /y 测试2.txt+新建文本文档.txt 新.txt  （将当前目录下的测试2.txt与新建文本文档.txt合并写入新.txt ）
+
+9，xcopy 更强大的复制命令
+xcopy 文件夹路径  目标文件夹 （将文件夹里面的所有内容拷贝到目标文件夹里面 直接执行不包含子目录）
+xcopy 文件夹路径  目标文件夹  /s  (将文件夹里面的所有内容拷贝到目标文件夹里面,包含子目录)
+xcopy 文件夹路径  目标文件夹  /d:月-日-年  /s  /y (将文件夹里面这个时间改变之后的文件拷贝到目标文件夹里面,包含子目录)
+
+10,move 移动文件
+move 测试2.txt e:\  （移动测试2.txt到e盘）  /y
+move *.txt e:\  （移动所有后缀为txt到e盘）  /y
+move 测试文件夹 e:\new  (移动文件夹到new文件夹，如果存在new文件夹，那么直接移到到该目录下面，如果不存在，则将移动的文件夹移动到对应目录后，改名为new)
+
+11,del 删除文件  不会删除目录及子目录
+del 文件夹 （删除当前目录下的文件夹中所有非只读文件，子目录下的文件不删除，并且还会进行删除前确认 ==  del new\* ）
+del /f 文件夹 （含只读文件，子目录下的文件不删除，并且还会进行删除前确认 ==  del /f new\* ）
+del /f /s /q 文件夹 （含只读文件，含子目录下的文件）
+del /ar *.* (删除当前目录下所有只读文件)
+del /a-s *.* (删除当前目录下除系统文件以外的所有文件)
+
+12，replace 替换文件
+replace e:\work\测试2.txt e:\q  （使用e:\work\测试2.txt 去替换 e盘下面q文件夹下面的测试2.txt）
+
+13，bat窗口
+@echo off
+title 测试bat
+color 03
+mode con cols=50 lines=100
+pause
+
+--------------------------------------
+     0 = 黑色                     8 = 灰色
+     1 = 蓝色                     9 = 淡蓝色
+     2 = 绿色                     A = 淡绿色
+     3 = 湖蓝色                  B = 淡浅绿色
+     4 = 红色                     C = 淡红色
+     5 = 紫色                     D = 淡紫色
+     6 = 黄色                     E = 淡黄色
+     7 = 白色                     F = 亮白色
+--------------------------------------
+
+14，文件写入内容
+e:
+cd e:\Work
+echo bat测试命令 >> 测试2.txt   （>>直接写入到原来的尾部）  （> 表示覆盖写入）
+
+15，type 显示文本内容
+type 测试2.txt
+
+16，find 文件中搜索字符(findstr)
+find /n /i "测试" 测试2.txt  （/n 显示行号  /i忽略大小写）
+
+17,参数 %1 - %9
+
+18，rem 注释
+
+19，if语句  goto语句
+if "%1" == "qwer"  （"参数" == "参数"）
+goto 名称  （查找是根据 :名称 进行匹配）
+
+@echo off
+if "%1" == "qwer" (
+ echo 包含qwer
+ echo 111
+) else (
+ echo 不包含qwer
+)
+pause 
+（注意 1，括号所在位置  2，括号与关键字中间的空格）
+
+if "%1" == "qwer"   正常的字符串判断
+if {%1}=={}             判断是否有参数
+if exist 学习笔记.txt 判断文件是否存在
+
+20，exit 退出
+
+21，call 命令，调用其他的.bat .cmd
+call tt2 
+
+22,start 启动一个程序 （程序路径）
+
+23，choice
+@echo off
+choice /c ync /m "确认Y,否N，取消C."  （/m代表显示的信息）
+if errorlevel 3 goto C
+if errorlevel 2 goto N
+if errorlevel 1 goto Y
+
+:Y
+echo 确定
+goto C
+
+:N
+echo 否
+goto C
+
+:C
+echo 取消
+pause
+
+24，for
+cmd窗口里： for %i in (command1) do command2  (引用变量为%i)
+在bat中： for %%i in (command1) do command2    (引用变量为%%i)
+在command1 命令里面切分元素的时候，使用空格，逗号，等号作为分隔符
+示例1：
+cmd窗口里：  for %i in (abc) do echo %i
+在bat中：for %%i in (a b,c) do echo %%i
+
+/L 开关控制循环次数
+for /L %i in (start,step,end) do command2   (start开始的i,step递增值，end结束值)
+示例2：
+for /l %i in (1,2,10) do echo %i
+	
+            
+/F  delims=;   （每一行以;为分隔符）  
+for /f "delims=;" %%i in (学习笔记.txt) do echo %%i
+
+tokens=2 代表取每一行的第几列  tokens=1，2（取第一列和第二列） tokens = *（取全部）
+for /f "tokens=1,* delims= " %%i in (学习笔记.txt) do echo %%i %%j
+
+skip = 2 忽略前几行
+for /f "skip=2 tokens=* delims= " %%i in (学习笔记.txt) do echo %%i
+
+eol  忽略以什么字符开始的那一行
+for /f "eol=f skip=2 tokens=* delims= " %%i in (学习笔记.txt) do echo %%i
+
+usebackq （反转） for %%i in (command1) do command2   
+for /f "usebackq tokens=* delims= " %%i in ("学习笔记.txt") do echo %%i
+for /f "usebackq tokens=* delims= " %%i in ('echo siki学院') do echo %%i
+
+25, date time
+2019/01/16 周三
+%date:~0,4%  年
+%date:~5,2% 月
+%date:~8,2% 日
+16:59:56.76
+%time:~0,2%时
+%time:~3,2%分
+%time:~6,2%秒
+
+26， set 赋值  %变量%取值    
+
+27，字符串操作
+%time:~0,2%  字符串截取
+
+替换
+set t="siki学院牛逼！"
+echo 替换前： %t%
+echo 替换后:  %t:牛逼=超级牛逼%
+echo t = %t%
+set "t=%t:牛逼=超级牛逼%"
+echo t =%t%
+
+拼接
+set t=siki学院
+set t2=牛逼
+echo %t%%t2%
+echo t=%t%
+echo t2=%t2%
+set "t=%t%%t2%"
+echo t=%t%
+
+扩充  C:\Users\yons\Desktop\学习笔记.txt
+      ~I - 删除任何引号(")，扩充 %I
+　　%~fI - 将 %I 扩充到一个完全合格的路径名
+　　%~dI - 仅将 %I 扩充到一个驱动器号
+　　%~pI - 仅将 %I 扩充到一个路径
+　　%~nI - 仅将 %I 扩充到一个文件名
+　　%~xI - 仅将 %I 扩充到一个文件扩展名
+　　%~sI - 扩充的路径只含有短名
+　　%~aI - 将 %I 扩充到文件的文件属性
+　　%~tI - 将 %I 扩充到文件的日期/时间
+　　%~zI - 将 %I 扩充到文件的大小
+　　%~$PATH:I - 查找列在路径环境变量的目录，并将 %I 扩充
+　　到找到的第一个完全合格的名称。如果环境变量名
+　　未被定义，或者没有找到文件，此组合键会扩充到
+　　空字符串
+　　可以组合修饰符来得到多重结果:
+　　%~dpI - 仅将 %I 扩充到一个驱动器号和路径
+　　%~nxI - 仅将 %I 扩充到一个文件名和扩展名
+　　%~fsI - 仅将 %I 扩充到一个带有短名的完整路径名
+　　%~dp$PATH:i - 查找列在路径环境变量的目录，并将 %I 扩充
+　　到找到的第一个驱动器号和路径。
+　　%~ftzaI - 将 %I 扩充到类似输出线路的 DIR
+
+echo %~nx1  (文件加扩展名)
+echo %~pd1  （路径）
+
+
+SVN命令行
+svn commit -m "测试命令行上传" taa.txt   （-m 后面跟双引号，里面是上传log   后面在跟上传的文件或者目录）
+svn commit -m "测试命令行上传全部文件" * （上传全部文件）
+svn commit -m "测试命令行上传" 测试目录/*  （上传目录下面所有文件）
+ 
+svn add * （添加所有文件）
+svn add 文件夹名（添加文件）
+
+svn update （当前目录下所有文件及文件夹更新）
+svn update taa.txt （更新单个文件）
+svn update -r 3 taa.txt （更新到某个版本）
+
+svn cleanup (解锁)
+
+svn revert taa.txt（还原单个文件）
+svn revert * （还原所有文件）
+
+
+unity命令行
+-projectpath E:\Work\Teach\RealFram -quit -batchmode -executeMethod  TestEditor.JenkinsTest -logFile "D:\log.txt"
+
+Winrar命令行
+Winrar.exe a -r -ep1 "E:\Work\Teach\RealFram\BuildTarget\Windows\RealFram_StandaloneWindows64_2019_01_18_15_15.rar" "E:\Work\Teach\RealFram\BuildTarget\Windows\RealFram_StandaloneWindows64_2019_01_18_15_15"
+
+生成密钥命令行
+keytool -genkey -alias android.keystore -keyalg RSA -validity 36500 -keystore realfram.keystore
+
+Ios Builder 的命令行
+build.cmd "F:\Work\Teach\RealFram_IOS\BuildTarget\IOS\RealFram_IOS_0.1_0_MTR_Dynamic_2019_02_18_09_38" -xcname "Unity-iPhone" -xcconf "Release" -archs "armv7 arm64" -type crt -multicore -pngcrush -ipa -strip bitcode -identity "iPhone Developer haiyang feng (NDR72C36VV).cer:AppleIncRootCertificate.cer:AppleWWDRCA.cer:private_key00.key:ocean" -provision "RealFram (QFNVK65JTJ).mobileprovision"
