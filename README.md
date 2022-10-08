@@ -347,6 +347,10 @@ echo "Hello World"
 
 #### 9、执行 python 任务
 
+​	[注意]：执行python可以在Jenkins安装python插件，也可以使用batch command执行。
+
+​	如果pc本地可以执行python，但是Jenkins无法执行python，则需要在Jenkins中配置python环境变量。方法参考：[jenkins中运行python脚本以及Jenkins构建提示‘python‘ 不是内部或外部命令](https://blog.csdn.net/weixin_45878889/article/details/123914504)
+
 我们看到任务`Build`中并没有`Phython`的选项，  
 ![](https://img-blog.csdnimg.cn/20210717210023918.png?x-oss-process=/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbnhpbmZh,size_16,color_FFFFFF,t_70)  
 但我们又想要让`Jenkins`可以执行`Python`，怎么办呢？很简单，在`bat`中`call python`就好啦，  
