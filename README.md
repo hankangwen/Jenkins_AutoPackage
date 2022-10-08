@@ -77,6 +77,16 @@
 
 ### 三、Jenkins 的下载与安装
 
+Port : 8080
+
+Username : hankangwen
+
+Passwoed : kerven
+
+full name : 韩康文
+
+<img src="https://gitcode.net/hankangwen/blog-image/-/raw/master/pictures/2022/10/8_10_6_33_image-20221008100633113.png" alt="image-20221008100633113" style="zoom:150%;" />
+
 #### 1、JDK 下载与安装
 
 因为`Jenkins`是基于`Java`开发的，要运行`Jenkins`需要`Java`环境，即`JDK`，所以我们需要先安装下`JDK`。  
